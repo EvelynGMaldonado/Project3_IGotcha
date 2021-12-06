@@ -18,6 +18,7 @@ import NotFound from './pages/NotFound';
 import "./App.css";
 import { io } from "socket.io-client";
 
+import Navbar from './components/Navbar'
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -191,6 +192,7 @@ function App({updateLocal}) {
               </div> 
             )} 
           </div>
+          <Navbar updateLocal={updateLocal}/>
           <Switch>
             <Route exact path="/signup">
               <SignUp setUser={setUser} updateLocal={updateLocal}/>

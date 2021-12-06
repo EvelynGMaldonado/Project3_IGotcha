@@ -1,9 +1,10 @@
 :root{
-    --blue: rgb(6, 93, 122);
+    --blue: rgb(167,199,231);
     --white: white;
-    --green: rgb(137, 199, 22);
-    --purple: purple;
+    --green: rgb(51, 204, 153);
+    --purple: rgb(199, 167, 231);
     --gray: lightgray;
+    --lightblue: rgb(233, 241, 249);
 }
 body{
     text-align: center;
@@ -51,9 +52,8 @@ h5 {
 }
 .editprof {
     border: 10px solid var(--green);
-    border-style: dotted;
-    border-width: thick;
-    /* justify-self: center; */
+    border-style: solid;
+    border-width: thin;
     background-color: white;
     margin: 3% 20% 1% 20%;
     padding: 3% 2% 4.5% 2%;
@@ -75,9 +75,9 @@ label {
 .empw {
     display: grid;
     column-gap: 10px;
-    border: 10px solid var(--gray);
+    border: 10px solid var(--lightblue);
     border-width: thick;
-    background-color:var(--gray);
+    background-color:var(--lightblue);
     margin: 2% 2% 4% 2%;
     padding: 2% 2% 6% 2%;
 }

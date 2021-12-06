@@ -51,8 +51,8 @@ h5 {
 }
 .editprof {
     border: 10px solid var(--green);
-    border-style: dotted;
-    border-width: thick;
+    border-style: solid;
+    border-width: thin;
     /* justify-self: center; */
     background-color: white;
     margin: 3% 20% 1% 20%;
@@ -95,7 +95,7 @@ label {
     border-radius: 10px;
 }
 .cancel {
-    background-color: red;
+    background-color: crimson;
     color: white;
     border: none;
     padding: 2%;
