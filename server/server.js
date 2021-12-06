@@ -20,12 +20,15 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
+  bodyParserOptions: {limit: "128mb", type: "application/json" },
 });
 
-server.applyMiddleware({ app });
 
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+
+app.use(express.urlencoded({ extended: false, limit: "64mb"  }));
+app.use(express.json({limit: '64mb'}));
+
+server.applyMiddleware({ app });
 
 // Serve up static assets
 if (process.env.NODE_ENV === 'production') {
@@ -142,7 +145,7 @@ db.once('open', () => {
           console.log("event emit notif push line 137");
           socket.broadcast.emit("notificationPush", {userToken, email});
         };
-        io.to(email.socketId).emit("requestEventResponse", {userToken});
+        // io.to(email.socketId).emit("requestEventResponse", {userToken});
 
       })
     })

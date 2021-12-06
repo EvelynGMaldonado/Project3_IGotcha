@@ -8,16 +8,17 @@ import { useQuery } from '@apollo/client';
 import {ADD_SERVICEPOST, REMOVE_SERVICE_POST} from '../utils/mutations';
 import { QUERY_SERVICES, QUERY_ME } from '../utils/queries'
 
-
+import { IoIosAddCircleOutline } from "react-icons/io";
+import { FormattedMessage } from 'react-intl';
 
 const OfferService = () =>{
     const { loading, data:userData } = useQuery(QUERY_ME, {
         fetchPolicy: "no-cache"
     });
     const user= loading?null:userData.me;
-    console.log(user)
     
-    console.log(user);
+    const [image, setImage] = useState(null);
+
     const history = useHistory();
     const [formState, setFormState] = useState({ 
         name: '', 
@@ -27,7 +28,6 @@ const OfferService = () =>{
         location: '', 
         hourly_rate: '', 
         phone_number: '', 
-        image: '',
     });
 
     const [addServicePost, { error, data }] = useMutation(ADD_SERVICEPOST);
@@ -50,7 +50,7 @@ const OfferService = () =>{
                     type: formState.type,
                     hourly_rate: formState.hourly_rate,
                     phone_number: formState.phone_number,
-                    image: 'image',
+                    image: image,
                     user: Auth.getUser()
                 },
             });
@@ -73,100 +73,102 @@ const OfferService = () =>{
         })
         history.go(0);
     }
-    console.log(formState);
+
+    // this code pertains to the images
+    const handleChange = (event) =>{
+        if (event.target.files[0]){
+            const reader = new FileReader();
+            reader.readAsDataURL(event.target.files[0])
+            reader.onload = function() {
+                setImage(reader.result)
+            };
+            reader.onerror = function(error) {
+                console.error(error);
+            };
+        }
+    } 
+
+
     return(
-    <main className="base-grid home-columns">
-        <nav className="full-width nav-columns distribute-even fit">
-            <Link to="/profile">
-            <button className="btn">Profile</button>
-            </Link>
-            <Link to="/find-service">
-            <button className="btn">Find Service</button>
-            </Link>
-            <Link to="/offer-service">
-            <button className="btn">Offer Service</button>
-            </Link>
-            <button className="btn">Language</button>
-            <button onClick={Auth.logout}className="btn">Logout</button>
-        </nav>
+        <main className="base-grid home-columns">
         <div className="full-width">
-                <h3 className="center">Offer a service</h3>
+        <h1 className="center simple-header"><FormattedMessage id="addAService"/></h1>
             </div>
         <section className="login">
             <form onSubmit={handleFormSubmit} className=" signin fit stack" style={{margin:"auto", maxWidth:"65%"}}>
-                <h4 className="log">Add a new service</h4>
+                <h2 className="log"><FormattedMessage id="addNewService"/> <IoIosAddCircleOutline/></h2>
                 <div className="empw">
-                    <label>Service Name</label>
+                    <label><FormattedMessage id="serviceName"/></label>
                     <input 
                         placeholder="service name"
                         type="text"
                         name="name"
                         onChange={handleInputChange}
                         value={formState.name}
-                        // required 
+                        style={{minWidth:"70%",padding:"10px",borderRadius:"5px",border:"2px, solid, var(--green)",marginBottom:"1rem"}}
                     />
-                    <label>Location</label>
+                    <label><FormattedMessage id="location"/></label>
                     <input 
                         placeholder="location"
                         type="text"
                         name="location"
                         onChange={handleInputChange}
                         value={formState.location}
-                        // required 
+                        style={{minWidth:"70%",padding:"10px",borderRadius:"5px",border:"2px, solid, var(--green)",marginBottom:"1rem"}} 
                     />
                     
-                    <label>Hourly Rate</label>
+                    <label><FormattedMessage id="hourlyRate"/></label>
                     <input 
                         placeholder="hourly rate"
                         type="text"
                         name="hourly_rate"
                         onChange={handleInputChange}
                         value={formState.hourly_rate}
-                        // required 
+                        style={{minWidth:"70%",padding:"10px",borderRadius:"5px",border:"2px, solid, var(--green)",marginBottom:"1rem"}} 
                     />
-                    <label>Phone Number</label>
+                    <label><FormattedMessage id="phoneNumber"/></label>
                     <input 
                         placeholder="phone number"
                         type="text"
                         name="phone_number"
                         onChange={handleInputChange}
                         value={formState.phone_number}
-                        // required 
+                        style={{minWidth:"70%",padding:"10px",borderRadius:"5px",border:"2px, solid, var(--green)",marginBottom:"1rem"}} 
                     />
-                    <label>Email</label>
+                    <label><FormattedMessage id="email"/></label>
                     <input 
                         placeholder="email"
                         type="text"
                         name="email"
                         onChange={handleInputChange}
                         value={formState.email}
-                        // required 
+                        style={{minWidth:"70%",padding:"10px",borderRadius:"5px",border:"2px, solid, var(--green)",marginBottom:"1rem"}} 
                     />
-                    <label>Service Description</label>
+                    <label><FormattedMessage id="description"/></label>
                     <input 
                         placeholder="service desciption"
                         type="text"
                         name="description"
                         onChange={handleInputChange}
                         value={formState.description}
-                        // required 
+                        style={{minWidth:"70%",padding:"10px",borderRadius:"5px",border:"2px, solid, var(--green)",marginBottom:"1rem"}} 
                     />
-                    {/* <label>Service Image</label>
+                    <label><FormattedMessage id="addAnImage"/></label>
                     <input 
-                        placeholder="add a image of your service"
-                        type="text"
+                        type="file"
                         name="image"
-                        onChange={handleInputChange}
+                        onChange={handleChange}
                         value={formState.image}
-                        // required 
-                    /> */}
-                    <label> Type of service</label>
+                        style={{minWidth:"70%",padding:"10px",borderRadius:"5px",border:"2px, solid, var(--green)",marginBottom:"1rem"}}
+                    /> 
+                    <label><FormattedMessage id="typeOfService"/></label>
                     <select 
                         // className="select"
                         // placeholder="type of service"
                         name="type"
                         onChange={handleInputChange}
                         value={formState.type}
+                        style={{minWidth:"70%",padding:"10px",borderRadius:"5px",border:"2px, solid, var(--green)",marginBottom:"1rem"}}
                     >
                         <option>Adult Care</option>
                         <option>Art</option>
@@ -177,7 +179,7 @@ const OfferService = () =>{
                         <option>Handy man</option>
                         <option>House Cleaning</option>
                         <option>Make up</option>
-                        <option>Personal Assistent</option>
+                        <option>Personal Assistant</option>
                         <option>Personal Training</option>
                         <option>Pet Walking</option>
                         <option>Photography</option>
@@ -196,14 +198,14 @@ const OfferService = () =>{
                         Add photo
                     </button> */}
                     <button 
-                        className="save fit"
+                        className="save"
                         disabled = {!(formState.name && formState.type && formState.location && formState.hourly_rate && formState.phone_number && formState.email && formState.description)}
                         type = "submit"
                         onClick={handleFormSubmit}
                         variant = "success">
-                        Save Changes
+                        <FormattedMessage id="addMyService"/>
                     </button>
-                    <button className="cancel fit">Cancel</button>
+                    <button className="cancel"><FormattedMessage id="cancel"/></button>
                 </div>
             </form>
         </section>
@@ -212,14 +214,14 @@ const OfferService = () =>{
                 user?.servicePost.map((post) => ( 
                     <div className="" key={post._id}>
                         <div className="find">
-                            <img/>
+                        <img id="profpic" src="" alt="Profile Picture" src={post.image} style={{ maxHeight: '150px' }} />
                             <div>
-                                <h6>Service name: {post.name}</h6>
-                                <p>Type:{post.type}</p>
-                                <p>Location:{post.location}</p>
-                                <p>Hourly rate:{post.hourly_rate}</p>
+                                <h6><FormattedMessage id="serviceName"/>: {post.name}</h6>
+                                <p><FormattedMessage id="typeOfService"/>:{post.type}</p>
+                                <p><FormattedMessage id="location"/>:{post.location}</p>
+                                <p><FormattedMessage id="hourlyRate"/>:{post.hourly_rate}</p>
                             </div>
-                            <button className="btn-delete" onClick={()=>handleDelete(post._id)}>Delete</button>
+                            <button className="btn-delete" onClick={()=>handleDelete(post._id)}><FormattedMessage id="delete"/></button>
                         </div>
                     </div>        
                 ))

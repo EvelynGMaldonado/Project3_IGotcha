@@ -9,6 +9,9 @@ import {QUERY_FINDSERVICE} from '../utils/queries';
 import { QUERY_SERVICES} from '../utils/queries'
 import { Redirect, useParams } from 'react-router-dom';
 
+import { IoIosSearch } from "react-icons/io";
+import { FormattedMessage } from 'react-intl';
+
 const FindServicePost = () =>{
     
     const [formState, setFormState] = useState({ 
@@ -60,21 +63,8 @@ const FindServicePost = () =>{
 
     return(
         <main className="base-grid home-columns">
-            <nav className="full-width nav-columns distribute-even fit">
-                <Link to="/profile">
-                <button className="btn">Profile</button>
-                </Link>
-                <Link to="/find-service">
-                <button className="btn">Find Service</button>
-                </Link>
-                <Link to="/offer-service">
-                <button className="btn">Offer Service</button>
-                </Link>
-                <button className="btn">Language</button>
-                <button onClick={Auth.logout}className="btn">Logout</button>
-            </nav>
             <div className="full-width">
-                <h3 className="center">Find a service</h3>
+                <h1 className="center simple-header"><IoIosSearch/> <FormattedMessage id="findService"/></h1>
             </div>
             <form  className="fit options full-width">
                 <select 
@@ -83,8 +73,9 @@ const FindServicePost = () =>{
                 name="type"
                 onChange={handleInputChange}
                 value={formState.type}
+                style={{minWidth:"20%",marginRight:"1em",fontSize:"large", borderRadius:"5px"}}
                 >
-                    <option>Adult Care</option>
+                    <option value="Adult Care">Adult Care</option>
                     <option>Art</option>
                     <option>Beauty</option>
                     <option>ChildCare</option>
@@ -93,9 +84,9 @@ const FindServicePost = () =>{
                     <option>Handy man</option>
                     <option>House Cleaning</option>
                     <option>Make up</option>
-                    <option>Personal Assistent</option>
+                    <option>Personal Assistant</option>
                     <option>Personal Training</option>
-                    <option>Pet Walking</option>
+                    <option>Pet Care</option>
                     <option>Photography</option>
                     <option>Translations</option>
                     <option>Tutoring</option>
@@ -107,14 +98,15 @@ const FindServicePost = () =>{
                 type="text"
                 name="location"
                 onChange={handleInputChange}
-                value={formState.location}/>
+                value={formState.location}
+                style={{marginRight:"1em", borderRadius:"5px"}}/>
                 <button 
-                    className="go"
+                    className="btn"
                     disabled={!(formState.type && formState.location)}
                     type="submit"
                     onClick={handleFormSubmit}
                     variant="success">
-                    go!
+                    <FormattedMessage id="go"/>!
                 </button>
             </form>
             <section className="edit full-width">
@@ -122,18 +114,18 @@ const FindServicePost = () =>{
                     // data && data.findServicePost ? ( data.findServicePost.map((post) => (
                     service.map((post) => (
                 <div className="editprof fit stack" key={post.type} style={{margin:"auto", maxWidth:"70%"}}>
-                    <h4 className="ed">RESULTS</h4>
+                    <h2 className="ed"><FormattedMessage id="results"/></h2>
                     <div className="find">
-                        <img/>
-                        <div>
-                            <h6>Service name: {post?.name}</h6>
-                            <p>Description:{post?.description}</p>
-                            <p>Location:{post?.location}</p>
-                            <p>Hourly rate:{post?.hourly_rate}</p>
-                        </div>
-                        <Link className='btn-more' to={`/service-post/${post?.location}/${post?.type}`}>
-                            More...
+                    <div className="container">
+                    <img id="profpic" src="" alt="Profile Picture" src={post?.image} style={{ maxHeight: '150px' }} />
+                            <h6><FormattedMessage id="serviceName"/>: {post?.name}</h6>
+                            <p><FormattedMessage id="description"/>: {post?.description}</p>
+                            <p><FormattedMessage id="location"/>: {post?.location}</p>
+                            <p><FormattedMessage id="hourlyRate"/>: {post?.hourly_rate}</p>
+                        <Link className='btn' style={{padding:"0.5rem", backgroundColor:"white",color:"rgb(6, 93, 122)"}} to={`/service-post/${post?.location}/${post?.type}`}>
+                        <FormattedMessage id="moreInfo"/>
                         </Link>
+                        </div>
                     </div>
                 </div>
                     ))
