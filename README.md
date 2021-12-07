@@ -15,7 +15,7 @@ The user must start by signing up, which creates their user profile. Then, they 
 ## Credits
 Credits go to the UW Bootcamp Instructional Staff and Tutors for teaching us the necessary skills to develop this application. Credits also go to the [Apollo-GraphQL](https://www.apollographql.com/docs/) and [React](https://reactnative.dev/docs/getting-started) documentation. 
 ## License
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 MIT License
 
 Copyright (c) 2021 Evelyn González Maldonado & Jorge Márquez Barragán
@@ -41,7 +41,3 @@ SOFTWARE.
 🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
 ## Features
 This application features an Apollo-GraphQL server architechture for both back-end and front-end. [React](https://reactnative.dev/docs/getting-started) is used for the UI and [MongoDB](https://www.mongodb.com/cloud) is used for the database. The app features [Socket.IO](https://socket.io/) real-time notifications and English/Spanish accessibility.
-## How to Contribute
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-## Tests
-Go the extra mile and write tests for your application.

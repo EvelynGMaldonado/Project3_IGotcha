@@ -76,10 +76,18 @@ const Home = ({ setUser, updateLocal, socket }) => {
         <h5 className="miss"><FormattedMessage id="missionSatement"/></h5>
         <p><FormattedMessage id="missionStateText"/></p>
         <div className="center">
-        <img src={require("../assets/fb.png").default} style={{width:"30px"}} alt="pp"/>
-        <img src={require("../assets/instagram.png").default} style={{width:"30px"}} alt="pp"/>
-        <img src={require("../assets/pinterest.png").default} style={{width:"30px"}} alt="pp"/>
-        <img src={require("../assets/twitter.png").default} style={{width:"30px"}} alt="pp"/>
+        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">    
+                <img src={require("../assets/fb.png").default} style={{width:"30px"}} alt="facebook icon"/>
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">
+                <img src={require("../assets/instagram.png").default} style={{width:"30px"}} alt="instagram icon"/>
+            </a>
+            <a href="https://pinterest.com/" target="_blank" rel="noopener noreferrer">
+                <img src={require("../assets/pinterest.png").default} style={{width:"30px"}} alt="pinterest icon"/>
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+                <img src={require("../assets/twitter.png").default} style={{width:"30px"}} alt="twitter icon"/>
+            </a>
         </div>
       </div>
       <div className="images full-width distribute-even fit">

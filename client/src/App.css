@@ -67,3 +67,51 @@ footer {
     margin-right: auto; 
     margin-left: auto;
 }
+
+.app .notification {
+    /* for notifications container */
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: white;
+    color: black;
+}
+
+.app .counter {
+    width: 10px;
+    height: 10px;
+    background-color: crimson;
+    border-radius: 50%;
+    padding: 7px;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bolder;
+    position: absolute;
+    top: 48%;
+    margin-left: 50%;
+}
+
+@media screen and (max-width: 576px) {
+
+    .app .counter {
+        width: 10px;
+        height: 10px;
+        background-color: crimson;
+        border-radius: 50%;
+        padding: 7px;
+        font-size: 0.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bolder;
+        position: absolute;
+        top: 38%;
+        margin-left: 50%;
+    }
+
+}
