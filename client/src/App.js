@@ -148,7 +148,7 @@ function App({updateLocal}) {
         <div 
         // socket={socket} 
         className="notifications">
-            <div 
+            {/* <div 
               onClick={() => setOpen(!open)} 
               className="messages">
                 <img src={require("./assets/circleletter.png").default} alt="pp" style={{maxWidth:"40px"}}/>
@@ -157,21 +157,21 @@ function App({updateLocal}) {
                   {notifications.length} 
                 </p>
                 }
-            </div>
+            </div> */}
             <div 
-              // onClick={() => setOpen(!open)} 
+              onClick={() => setOpen(!open)} 
               className="jobrequests">
                 <img src={require("./assets/notificaticon.png").default} alt="pp" style={{maxWidth:"40px"}}/>
-                {/* {notifications.length > 0 && */}
+                {notifications.length > 0 &&
                 <p className="counter"> 
-                  {/* {notifications.length}  */}
+                  {notifications.length} 
                 </p>
-                {/* } */}
+                }
             </div>
             {open && (
               <div className= "notification"> 
                 {notifications.map((n) => displayNotification(n))} 
-                <button 
+                {/* <button 
                 // className="acceptBtn"
                   onClick={(event)=>handleResponse(event, "accept")} 
                 >
@@ -182,7 +182,7 @@ function App({updateLocal}) {
                 onClick={(event)=>handleResponse(event, "decline")} 
                 >
                   Decline
-                </button> 
+                </button>  */}
                 <button 
                 // className="readBtn"
                 onClick={(event)=>handleResponse(event, "read")} 
