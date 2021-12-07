@@ -88,6 +88,7 @@ const FindServicePost = () =>{
                     <option>Personal Training</option>
                     <option>Pet Care</option>
                     <option>Photography</option>
+                    <option>Remote</option>
                     <option>Translations</option>
                     <option>Tutoring</option>
                     <option>Web Design</option>                    

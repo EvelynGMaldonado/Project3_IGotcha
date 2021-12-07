@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
-
+import { IoLogoGithub, IoLogoLinkedin, IoMdMail } from "react-icons/io";
 
 //Adding some styling 
 const Background = styled.div`
@@ -105,9 +105,9 @@ const ContactusModal = ({ showContactusModal, setShowContactusModal }) =>{
                     <ModalContent id="modal-content">
                         <h1>Our contact info:</h1>
                             <h3>Evelyn Madonado</h3>
-                            <p>Some text</p>
+                            <p><a href="evelyn.gmaldonado@gmail.com"><IoMdMail/></a> <a href="https://www.linkedin.com/in/evelyngmaldonado/" taget="_blank" rel="noopener noreferrer"><IoLogoLinkedin/></a> <a href="https://github.com/EvelynGMaldonado" taget="_blank" rel="noopener noreferrer"><IoLogoGithub/></a></p>
                             <h3>Jorge Barrag&aacute;n</h3>
-                            <p>Some text</p>
+                            <p><a href="mailto:jmarq19@outlook.com"><IoMdMail/></a> <a href="https://www.linkedin.com/in/jorgemarquezbarragan/" target="_blank" rel="noopener noreferrer"><IoLogoLinkedin/></a> <a href="https://github.com/jmarq019" target="_blank" rel="noopener noreferrer"><IoLogoGithub/></a></p>
                     </ModalContent>
                     <CloseModalButton id="close-modal-btn" aria-label='Close modal' onClick={() => setShowContactusModal(prev => !prev)} />
                 </ModalWrapper>

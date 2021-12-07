@@ -104,10 +104,8 @@ const Modal = ({ showModal, setShowModal }) =>{
                 <ModalWrapper id="modal-wrapper">
                     <ModalContent id="modal-content">
                         <h1>About the devs</h1>
-                            <h3>Evelyn Madonado</h3>
-                            <p>Some text</p>
-                            <h3>Jorge Barrag&aacute;n</h3>
-                            <p>Some text</p>
+                            <h3>Evelyn Madonado & Jorge Barragán</h3>
+                            <p>As Junior Developers, we have decided to create Gotcha App with the goal of providing a complete tool, that is easy to use, accessible and useful for all. Being that we are Spanish speakers and living in a multicultural country, we decided to include Spanish as a second language. We believe that our app should be accessible by everyone.</p>
                     </ModalContent>
                     <CloseModalButton id="close-modal-btn" aria-label='Close modal' onClick={() => setShowModal(prev => !prev)} />
                 </ModalWrapper>
