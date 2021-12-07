@@ -51,9 +51,10 @@ const resolvers = {
         //create a new user first
         const user = await User.create({first_name, last_name, username, email, password});
         //sign a JSON web token and log in the user after it is created
-        const token = signToken(user);
+        const newUser = await User.findOne({ email });
+        const token = signToken(newUser);
         //we need to return an 'auth' object that contains the signed token and user's info
-        return { token, user };
+        return { token, user: newUser };
       } catch (err) {
         console.log(err);
       }

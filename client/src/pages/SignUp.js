@@ -40,7 +40,7 @@ const SignUp = ({ setUser }) =>{
         variables: { ...formState },
     });
     console.log(data);
-    Auth.login(data.token, history);
+    Auth.login(data.addUser.token, history);
     setUser(data.addUser.user)
     } catch (e) {
         console.error(e);
