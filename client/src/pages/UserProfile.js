@@ -12,7 +12,7 @@ const UserProfile =() => {
     const { loading, data } = useQuery(QUERY_ME, {
         fetchPolicy: "no-cache"
         });
-    const user= loading?null:data.me
+    const user= loading?null:data?.me
     console.log(user);
     return(
         <main className="base-grid home-columns">
