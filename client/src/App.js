@@ -71,21 +71,21 @@ function App({updateLocal}) {
   })
     const displayNotification = ({userToken, email}) => {
     return (
-      <span className="notificationReturn" data-token={userToken}> {email} has sent you a service request </span>
+      <span className="notificationReturn" data-token={userToken}> You have a new Service Request </span>
     );
   };
 
-  const handleResponse = async (event, action) => {
-    event.preventDefault();
-    console.log(action);
-    // setHireService(true);
-    // socket.emit("requestEventResponse", {
-    //     token: localStorage.getItem("id_token"),
-    //     email: service.user.email,
-    //     // username: service.user.username,
-    //     //here i can add more like service name
-    // });
-}
+//   const handleResponse = async (event, action) => {
+//     event.preventDefault();
+//     console.log(action);
+//     // setHireService(true);
+//     // socket.emit("requestEventResponse", {
+//     //     token: localStorage.getItem("id_token"),
+//     //     email: service.user.email,
+//     //     // username: service.user.username,
+//     //     //here i can add more like service name
+//     // });
+// }
 
 
   // useEffect(()=> {
@@ -130,10 +130,10 @@ function App({updateLocal}) {
   //   );
   // };
 
-  // const handleRead = ()=> {
-  //   setNotifications([]);
-    // setOpen(false);
-  // }
+  const handleRead = ()=> {
+    setNotifications([]);
+    setOpen(false);
+  }
 
   return (
     <ApolloProvider client={client}>
@@ -185,7 +185,7 @@ function App({updateLocal}) {
                 </button>  */}
                 <button 
                 // className="readBtn"
-                onClick={(event)=>handleResponse(event, "read")} 
+                onClick={(event)=>handleRead(event, "read")} 
                 >
                   Mark as read
                 </button> 
